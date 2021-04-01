@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "defaul";
+    src: url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+}
+
+@font-face {
+    font-family: "bold";
+    src: url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
+}
+
+:root {
+    --color-default: #5333ed;
+}
+
+#brand {
+    background-color: white;
+    padding: 10px;
+}
+
+#brand * {
+    vertical-align: middle;
+}
+
+#brand span {
+    font-family: "bold";
+    font-size: 150%;
+    color: var(--color-default);
+}
+
+#header {
+    background-image: linear-gradient(to right, #4d13d1, #59abe3);
+    padding: 50px 10px 30px 30px;
+    color: white;
+}
+
+#welcomeMessage {
+    font-family: "bold";
+    font-size: 500%;
+    display: block;
+}
+
+#slogan {
+    font-family: "default";
+    font-size: 120%;
+}
+
+#container {
+    padding: 10px;
+    display: flex;
+    /* margin-top: 20px; */
+    background-color: #eee;
+}
+
+#left {
+    width: 60%;
+    padding: 10px;
+}
+
+#entries {
+    font-family: "bold";
+    font-size: 200%;
+    color: var(--color-default);
+}
+
+#newEntries {
+    float: right;
+    border: none;
+    background-color: var(--color-default);
+    color: white;
+    font-size: 120%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#entryArea {
+    margin-top: 30px;
+}
+
+.entryBlock {
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.entryDescription {
+    text-align: right;
+}
+
+.entryDescription span {
+    display: block;
+    font-family: "default";
+}
+
+.value {
+    font-family: "bold" !important;
+    font-size: 200%;
+}
+
+.spent {
+    color: red
+}
+
+.earned {
+    color: #4d13d1
+}
+
+#right {
+    background-color: white;
+    border-radius: 20px;
+    width: 40%;
+    height: 100%;
+    padding: 10px;
+    text-align: right;
+}
+
+#labelIncome {
+    font-size: 250%;
+    display: block;
+}
+
+#income {
+    font-size: 400%;
+    color: var(--color-default);
+}
