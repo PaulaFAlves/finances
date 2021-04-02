@@ -5,23 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Financeiro</title>
 </head>
 <body>
-    <div id="brand">
+    <!-- <div id="brand">
         <span>Financeiro</span>
-    </div>
+    </div> -->
     <div id="header">
         <span id="welcomeMessage">Olá, fulano</span>
         <span id="slogan">Vamos colocar sua vida financeira no lugar</span>
     </div>
     <div id="container">
         <div id="left">
-            <span id="entries">Seus lançamentos</span>
-            <button id="newEntries">Novos lançamentos</button>
+            <span id="entries">Nenhum lançamento cadastrado</span>
+            <button id="newEntries" onclick="formDisplay()">Novos lançamentos</button>
 
-            <div id="entryArea">
+						<div id="formEntry">
+							<form>
+								<label for="value">Valor:</label>
+								<input type="number" name="value" id="value">
+
+								<label for="description">Descrição:</label>
+								<input type="text" name="description" id="description">
+
+								<label for="date">Data:</label>
+								<input type="date" name="date" id="date">
+
+								<button id="submit">Lançar</button>
+							</form>
+						</div>
+
+            <!-- <div id="entryArea">
                 <div class="entryBlock">
+                    <i class="fas fa-minus-circle"></i>
                     <div class="entryDescription">
                         <span class="value spent">R$ 34,00</span>
                         <span>20/12/2012</span>
@@ -31,6 +48,7 @@
             </div>
             <div id="entryArea">
                 <div class="entryBlock">
+                    <i class="fas fa-plus-circle"></i>
                     <div class="entryDescription">
                         <span class="value earned">R$ 22,00</span>
                         <span>02/03/2012</span>
@@ -40,19 +58,22 @@
             </div>
             <div id="entryArea">
                 <div class="entryBlock">
+                    <i class="fas fa-minus-circle"></i>
                     <div class="entryDescription">
                         <span class="value spent">R$ 114,00</span>
                         <span>12/04/2012</span>
                         <span>Casa de carnes</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
         </div>
 				<div id="right">
-					<span id="labelIncome">Sua renda mensal</span>
+					<span id="labelIncome">Dinheiro em caixa</span>
+					<i class="fas fa-edit"></i>
 					<span id="income">R$ 3000,00</span>
 				</div>
     </div>
-    
+    <script src="./index.js"></script>
 </body>
 </html>
