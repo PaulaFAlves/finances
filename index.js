@@ -11,10 +11,43 @@ function formDisplay() {
         newEntries.innerHTML === 'Esconder' ? 'Novo Lançamento' : 'Esconder'
 }
 
+const graphOptions = {
+  responsive: true,
+      title: {
+        display: true,
+        text: 'Dinheiro em caixa'
+      },
+      tooltips: {
+        mode: 'index',
+        intersect: false,
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      },
+      scales: {
+        xAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Dias'
+          }
+        }],
+        yAxes: [{
+          display: true,
+          scaleLabel: {
+            display: true,
+            labelString: 'Renda'
+          }
+        }]
+      }
+};
+
 const entriesOnLocalStorage = localStorage.getItem('entries')
 const entries = 
   entriesOnLocalStorage ? JSON.parse(entriesOnLocalStorage) : []
 showEntries()
+showGraph()
 
 function submitForm(e) {
     e.preventDefault()
@@ -31,7 +64,46 @@ function submitForm(e) {
     saveOnLocalStorage()
     cleanForm()
 		showEntries()
+    showGraph()
     $('#value').focus()
+}
+
+function showGraph() {
+  if(entries) {
+    const OrderedEntries = entries.sort((a, b) => a.date - b.date)
+
+  let dates = []
+  let values = []
+  let currentValue = 0
+
+  entries.forEach(entry => {
+    const date = new Date(entry.date).toLocaleDateString()
+    dates.push(date)
+
+    currentValue += entry.value
+    values.push(currentValue)
+  })
+
+  const curveColor = currentValue < 0 ? 'red' : 'blue'
+
+  const configGraph = {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [{
+        label: 'Comportamento',
+        backgroundColor: curveColor,
+        borderColor: curveColor,
+        data: values,
+        fill: false
+      }]
+    },
+    option: graphOptions
+  }
+
+  const context = $('#graph').getContext('2d')
+  new Chart(context, configGraph)
+  }
 }
 
 function showEntries() {
