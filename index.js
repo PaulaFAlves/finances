@@ -19,8 +19,10 @@ showEntries()
 function submitForm(e) {
     e.preventDefault()
 
+    const multiplier = $('#spent').checked ? -1 : 1
+
     let entry = {
-        value: parseFloat($('#value').value),
+        value: parseFloat($('#value').value) * multiplier,
         description: $('#description'). value,
         date: $('#date').value
     }

@@ -101,6 +101,23 @@
     padding-left: 5px;
 }
 
+#typeOfEntry {
+    margin: 5px 0 20px 0;
+} 
+
+#typeOfEntry input {
+    display: inline;
+    margin: 0;
+    vertical-align: middle;
+}
+
+#typeOfEntry label {
+    vertical-align: middle;
+    font-family: "bold";
+    font-size: 120%;
+    margin-right: 10px;
+}
+
 #description {
     width: 70%;
 }
@@ -127,6 +144,7 @@
     padding: 25px;
     border-radius: 20px;
     display: flex;
+    margin-top: 10px;
 }
 
 .entryBlock * {
