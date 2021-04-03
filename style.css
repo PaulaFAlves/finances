@@ -105,7 +105,7 @@
     width: 70%;
 }
 
-#submit {
+#submitButton {
     /* float: right; */
     border: none;
     color: white;
@@ -126,10 +126,20 @@
     background-color: white;
     padding: 25px;
     border-radius: 20px;
+    display: flex;
+}
+
+.entryBlock * {
+    vertical-align: middle;
+}
+
+.entryImage {
+    width: 50%;
 }
 
 .entryDescription {
     text-align: right;
+    width: 50%;
 }
 
 .entryDescription span {
