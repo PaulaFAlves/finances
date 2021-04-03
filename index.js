@@ -11,7 +11,10 @@ function formDisplay() {
         newEntries.innerHTML === 'Esconder' ? 'Novo Lançamento' : 'Esconder'
 }
 
-const entries = []
+const entriesOnLocalStorage = localStorage.getItem('entries')
+const entries = 
+  entriesOnLocalStorage ? JSON.parse(entriesOnLocalStorage) : []
+showEntries()
 
 function submitForm(e) {
     e.preventDefault()
@@ -23,7 +26,7 @@ function submitForm(e) {
     }
 
     entries.push(entry)
-    console.log(entries)
+    saveOnLocalStorage()
     cleanForm()
 		showEntries()
     $('#value').focus()
@@ -32,11 +35,13 @@ function submitForm(e) {
 function showEntries() {
     if(entries) {
         let htmlEntries = []
+        let htmlAmount = 0
 
         for (let i = 0; i < entries.length; i++) {
             const entry = entries[i]
 
             let value = entry.value
+            htmlAmount += value
             const classEntry = value > 0 ? 'earned' : 'spent'
             const imgEntry = value > 0 ? 'fas fa-plus-circle' : 'fas fa-minus-circle'
 
@@ -44,7 +49,6 @@ function showEntries() {
               minimumFractionDigits: 2,  
               maximumFractionDigits: 2
             });
-            console.log(typeof value)
 
 						const date = new Date(entry.date).toLocaleDateString()
 
@@ -63,7 +67,25 @@ function showEntries() {
 						htmlEntries += html
         }
 				$('#entryArea').innerHTML = htmlEntries
+        showAmount(htmlAmount)
     }
+}
+
+function showAmount(htmlAmount) {
+  let amount = htmlAmount.toLocaleString(undefined, {
+    minimumFractionDigits: 2
+  })
+  $('#income').innerText = `R$ ${amount}`
+
+  let color = 'blue'
+  if (htmlAmount < 0) {
+    color = 'red'
+  }
+  $('#income').style.color = color
+}
+
+function saveOnLocalStorage() {
+  localStorage.setItem('entries', JSON.stringify(entries))
 }
 
 function cleanForm() {
