@@ -3,8 +3,10 @@
    "version": "0.0.1",
    "description": "Finances app API",
    "devDependencies": {
-      "ts-node": "3.3.0",
+      "@types/express": "^4.17.11",
       "@types/node": "^8.0.29",
+      "nodemon": "^2.0.7",
+      "ts-node": "3.3.0",
       "typescript": "3.3.3333"
    },
    "dependencies": {
@@ -13,6 +15,7 @@
       "pg": "^8.4.0"
    },
    "scripts": {
-      "start": "ts-node src/index.ts"
+      "dev": "nodemon --exec ts-node src/server.ts",
+      "start": "ts-node src/server.ts"
    }
 }
