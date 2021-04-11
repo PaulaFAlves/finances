@@ -5,6 +5,7 @@ import * as logger from 'morgan'
 
 import { connectServerOnDB } from './config/db'
 import { userRouter } from './routes/user'
+import { entryRouter } from './routes/entry'
 
 export const app = express()
 
@@ -17,4 +18,5 @@ app.use(logger())
 connectServerOnDB()
 
 app.use('/user', userRouter)
+app.use('/entry', entryRouter)
 app.use('/', (req, res) => res.send('Finances API'))

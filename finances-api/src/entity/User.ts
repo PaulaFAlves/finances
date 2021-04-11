@@ -1,7 +1,13 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import { Entry } from "./Entry";
 
 @Entity()
 export class User {
+
+    constructor(name: string, email: string) {
+        this.name = name
+        this.email = email
+    }
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -12,7 +18,7 @@ export class User {
     @Column()
     email: string;
 
-    @Column()
-    password: string;
+    @OneToMany(() => Entry, entry => entry.user)
+    entry: Entry[]
 
 }
