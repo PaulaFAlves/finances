@@ -15,7 +15,7 @@
 }
 
 :root {
-    --color-default: #5333ed;
+    --color-default: #255d00;
 }
 
 #brand {
@@ -34,7 +34,7 @@
 }
 
 #header {
-    background-image: linear-gradient(to right, #4d13d1, #59abe3);
+    background-image: linear-gradient(to right, #255d00, #85bb5c);
     padding: 50px 10px 30px 30px;
     color: white;
 }
@@ -175,7 +175,7 @@
 }
 
 .earned {
-    color: #4d13d1
+    color: #255d00
 }
 
 #right {
@@ -194,5 +194,5 @@
 
 #income {
     font-size: 400%;
-    color: var(--color-default);
+    color: var(--color-default) !important
 }
