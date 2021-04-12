@@ -1,5 +1,14 @@
 const $ = document.querySelector.bind(document)
 
+let user = window.prompt("Seja bem-vindo! Qual seu nome?","Digite aqui seu nome")
+if (user === null || user === 'Digite aqui seu nome') {
+  user = 'Visitante'
+}
+const userCapitalized = user[0].toUpperCase() + user.substring(1)
+
+const welcomeMessage = document.getElementById('welcomeMessage')
+welcomeMessage.innerHTML = `Olá, ${userCapitalized}!`
+
 function formDisplay() {
     const formEntry = document.getElementById('formEntry')
     const display = formEntry.style.display
@@ -84,7 +93,7 @@ function showGraph() {
     values.push(currentValue)
   })
 
-  const curveColor = currentValue < 0 ? 'red' : 'blue'
+  const curveColor = currentValue < 0 ? 'red' : '#255d00'
 
   const configGraph = {
     type: 'line',
